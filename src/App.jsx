@@ -1,49 +1,43 @@
-import TodoItem from "./TodoItem"
-import { useState } from "react"
+import "./App.css";
 
-export default function App() {
-
-  const [tareas, setTareas] = useState([]);
-
-  const [input, setInput] = useState("");
-
-
-  const   agregarTarea = () => {
-
-    if (input.trim()) {
-      setTareas([...tareas, { id: Date.now(), text: input.trim(), completed: false }]);
-      setInput("");
-    };
-
-  }
-
-
-  const toggleCompleted = (id) => {
-    setTareas(
-      tareas.map((tarea) =>
-        tarea.id === id ? { ...tarea, completed: !tarea.completed } : tarea
-      )
-    );
-  };
-
-
-  const eliminarTarea = (id) => {
-    setTareas(tareas.filter((tarea) => tarea.id !== id));
-
-  }
-
+function App() {
   return (
-    <div className="max-w-md mx-auto mt-10 p-2  rounded shadow">
-      <h1 className="text-3xl font-bold mb-5 text-center">APLICACION DE LISTAS DE TAREAS</h1>
-      <div className="flex gap-3 mb-5">
-        <input className="flex-1 p-2 border rounded" type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Añadir Tarea" />
-        <button className="bg-blue-500 text-white px-4 p-y-2 rounded" onClick={agregarTarea} >Añadir Tareas</button>
-      </div>
+    <div className="container">
+      {/* Header */}
+      <header className="header">
+        <nav>
+          <ul>
+            <li>INICIO</li>
+            <li>PROGRAMAS</li>
+            <li>CONTACTO</li>
+          </ul>
+        </nav>
+        <h2>Servicio Nacional de Aprendizaje</h2>
+        <h3>CGMLTI - Bogotá</h3>
+      </header>
 
-      <div className="space-y-2 ">
-        {tareas.map((tarea) => (<TodoItem key={tarea.id} tarea={tarea} toggleCompleted={toggleCompleted} eliminarTarea={eliminarTarea} />))}
-      </div>
+      {/* Programas */}
+      <section className="programas">
+        <div className="programa">ADSO</div>
+        <div className="programa">REDES DE DATOS</div>
+        <div className="programa">ANIMACIÓN 3D</div>
+        <div className="programa">LOGÍSTICA</div>
+        <div className="programa">MERCADO</div>
+        <div className="programa">SISTEMAS</div>
+      </section>
 
+      {/* Contacto */}
+      <section className="contacto">
+        <h3>CONTACTO</h3>
+        <form>
+          <input type="text" placeholder="NOMBRES" />
+          <input type="text" placeholder="APELLIDOS" />
+          <textarea placeholder="MENSAJE"></textarea>
+          <button type="submit">ENVIAR</button>
+        </form>
+      </section>
     </div>
-  )
+  );
 }
+
+export default App;
