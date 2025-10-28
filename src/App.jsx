@@ -12,7 +12,7 @@ function App() {
             <li>CONTACTO</li>
           </ul>
         </nav>
-        <h2>Servicio Nacional de Aprendizaje</h2>
+        <h2>Servicio Nacional de Aprendizaje sena</h2>
         <h3>CGMLTI - Bogotá</h3>
       </header>
 
